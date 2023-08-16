@@ -1,0 +1,22 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.team5.mapper.Table_1_Mapper">
+	<select id="selectTable_1_List" resultType="com.team5.vo.Table_1_VO">
+		SELECT * FROM table_1
+	</select>
+	<select id="selectTable_1" resultType="com.team5.vo.Table_1_VO">
+		SELECT * FROM table_1 WHERE bi_num = #{biNum}
+	</select>
+	<insert id="insertTable_1">
+		INSERT INTO table_1(bi_title, bi_content, ui_num, ui_name, credat, cretim, lmodat, lmotim)
+		VALUES(#{biTitle}, #{biContent}, #{uiNum}, #{uiName}, DATE_FORMAT(NOW(),'%Y%m%d'), DATE_FORMAT(NOW(),'%H%i%s'), DATE_FORMAT(NOW(),'%Y%m%d'), DATE_FORMAT(NOW(),'%H%i%s'));
+	</insert>
+	<update id="updateTable_1">
+		UPDATE table_1 SET bi_title=#{biTitle}, bi_content=#{biContent}, ui_num=#{uiNum}, ui_name=#{uiName}, lmodat=DATE_FORMAT(NOW(),'%Y%m%d'), lmotim=DATE_FORMAT(NOW(),'%H%i%s') WHERE bi_num=#{biNum};
+	</update>
+	<delete id="deleteTable_1">
+		DELETE FROM table_1 WHERE bi_num=#{biNum}
+	</delete>
+</mapper>

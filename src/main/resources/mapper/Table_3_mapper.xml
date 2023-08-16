@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.team5.mapper.Table_3_mapper">
+	<select id="selectBoardInfoList" resultType="com.team5.vo.Table_3_VO">
+		SELECT * FROM TABLE_3
+	</select>
+
+	<select id="selectBoardInfo" resultType="com.team5.vo.Table_3_VO">
+		SELECT * FROM TABLE_3 WHERE BI_NUM=#{biNum}
+	</select>
+
+	<insert id="insertBoardInfo" parameterType="com.team5.vo.Table_3_VO">
+		INSERT INTO TABLE_3(BI_TITLE, BI_CONTENT, UI_NUM, UI_NAME, CREDAT, CRETIM, LMODAT, LMOTIM)
+		VALUES(#{biTitle}, #{biContent}, #{uiNum}, #{uiName},
+		DATE_FORMAT(NOW(), '%Y%m%d'), DATE_FORMAT(NOW(), '%H%i%s'),
+		DATE_FORMAT(NOW(), '%Y%m%d'), DATE_FORMAT(NOW(), '%H%i%s')
+		)
+	</insert>
+
+	<update id="updateBoardInfo" parameterType="com.team5.vo.Table_3_VO">
+		UPDATE TABLE_3 SET BI_TITLE=#{biTitle}, BI_CONTENT=#{biContent}, 
+		LMODAT=DATE_FORMAT(NOW(), '%Y%m%d'), LMOTIM=DATE_FORMAT(NOW(), '%H%i%s'),
+		UI_NUM=#{uiNum}, UI_NAME=#{uiName}
+		WHERE BI_NUM=#{biNum};
+	</update>
+
+	<delete id="deleteBoardInfo" parameterType="com.team5.vo.Table_3_VO">
+		DELETE FROM TABLE_3 WHERE BI_NUM=#{biNum};
+	</delete>
+</mapper>

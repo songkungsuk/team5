@@ -18,5 +18,8 @@
 	</environments>
 	<mappers>
 		<mapper resource="mapper/UserInfoMapper.xml"/>
+		<mapper resource="mapper/Table_3_mapper.xml"/>
+		<mapper resource="mapper/Table_1_Mapper.xml"/>
+		<mapper resource="mapper/Table_2_Mapper.xml"/>
 	</mappers>
 </configuration>
