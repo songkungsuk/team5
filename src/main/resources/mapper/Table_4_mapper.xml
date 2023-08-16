@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mapper namespace="com.team5.mapper.Table_4_mapper">
+
+	<select id="selectTable_4List"
+		resultType="com.team5.vo.Table_4_VO">
+		SELECT * FROM Table_4
+	</select>
+
+	<select id="selectTable_4" resultType="com.team5.vo.Table_4_VO">
+		SELECT * FROM TABLE_4
+		WHERE UI_NUM = #{uiNum}
+	</select>
+
+	<insert id="insertTable_4List">
+		INSERT INTO TABLE_4(
+		BI_NUM,BI_TITLE,BI_CONTENT,UI_NUM,
+		UI_NAME,CRETIM,LMODAT,LMOTIM,ACTIVE)
+		VALUES(
+		#{biTitle},#{biContent},
+		#{uiNum},#{uiName},
+		DATE_FORMAT(NOW(), '%Y%m%d'), DATE_FORMAT(NOW(),
+		'%H%i%s'),
+		DATE_FORMAT(NOW(), '%Y%m%d'), DATE_FORMAT(NOW(), '%H%i%s') ,
+		#{active});
+
+	</insert>
+
+
+	<update id="updateTable_4List">
+		UPDATE TABLE_4
+		SET UI_NAME=#{uiName},
+		BI_TITLE=#{bi_Title},
+		BI_CONTENT=#{bi_Content},
+		LMODAT=DATE_FORMAT(NOW(), '%Y%m%d'),
+		LMOTIM=DATE_FORMAT(NOW(), '%H%i%s'),
+		ACTIVE=#{Active}
+		WHERE BI_NUM=#{ui_Num};
+
+	</update>
+	
+	
+	<delete>
+	
+	DELETE  FROM TABLE_4 WHERE UI_NUM=#{uiNum}
+	</delete>
+
+
+</mapper>
