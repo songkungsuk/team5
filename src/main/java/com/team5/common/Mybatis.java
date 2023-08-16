@@ -7,11 +7,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-<<<<<<< HEAD
 import com.team5.mapper.Table_1_Mapper;
-=======
 import com.team5.mapper.Table_2_Mapper;
->>>>>>> branch 'master' of https://github.com/songkungsuk/team5.git
 import com.team5.mapper.UserInfoMapper;
 
 public class Mybatis {
