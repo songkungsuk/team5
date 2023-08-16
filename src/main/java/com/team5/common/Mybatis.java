@@ -1,16 +1,14 @@
 package com.team5.common;
 
 import java.io.InputStream;
-import java.util.List;
-import java.util.Map;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import com.team5.mapper.Table_2_Mapper;
 import com.team5.mapper.UserInfoMapper;
-import com.team5.vo.UserInfoVO;
 
 public class Mybatis {
 	private static SqlSessionFactory ssf;
@@ -33,7 +31,7 @@ public class Mybatis {
 	
 	public static void main(String[] args) {
 		SqlSession session = ssf.openSession();
-		UserInfoMapper uiMapper = session.getMapper(UserInfoMapper.class);
-		System.out.println(uiMapper.selectUserInfoList(null));
+		Table_2_Mapper tMapper = session.getMapper(Table_2_Mapper.class);
+		System.out.println(tMapper.selectTableList(null));
 	}
 }
