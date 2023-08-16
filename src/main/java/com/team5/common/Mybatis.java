@@ -1,8 +1,6 @@
 package com.team5.common;
 
 import java.io.InputStream;
-import java.util.List;
-import java.util.Map;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -10,6 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import com.team5.mapper.Table_3_mapper;
+import com.team5.mapper.Table_2_Mapper;
 import com.team5.mapper.UserInfoMapper;
 import com.team5.vo.Table_3_VO;
 import com.team5.vo.UserInfoVO;
@@ -47,5 +46,8 @@ public class Mybatis {
 //		t3.setBiNum(5);
 //		System.out.println(t3Mapper.updateBoardInfo(t3));
 //		System.out.println(t3Mapper.deleteBoardInfo(t3));
+		SqlSession session = ssf.openSession();
+		Table_2_Mapper tMapper = session.getMapper(Table_2_Mapper.class);
+		System.out.println(tMapper.selectTableList(null));
 	}
 }
