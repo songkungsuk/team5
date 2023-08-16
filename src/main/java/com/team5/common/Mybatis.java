@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import com.team5.mapper.Table_3_mapper;
+import com.team5.mapper.Table_1_Mapper;
 import com.team5.mapper.Table_2_Mapper;
 import com.team5.mapper.UserInfoMapper;
 import com.team5.vo.Table_3_VO;
@@ -47,7 +48,12 @@ public class Mybatis {
 //		System.out.println(t3Mapper.updateBoardInfo(t3));
 //		System.out.println(t3Mapper.deleteBoardInfo(t3));
 		SqlSession session = ssf.openSession();
+
+		Table_1_Mapper t1Mapper = session.getMapper(Table_1_Mapper.class);
+		System.out.println(t1Mapper.selectTable_1_List(null));
+
 		Table_2_Mapper tMapper = session.getMapper(Table_2_Mapper.class);
 		System.out.println(tMapper.selectTableList(null));
+
 	}
 }
